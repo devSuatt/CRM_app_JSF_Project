@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Sale List Individual</title>
+        <h:outputStylesheet library="css1" name="bootstrap.css" />
+         <h:outputStylesheet library="css" name="styles.css" />
+        <style type="text/css">
+            .text_size{
+                font-size: 14px;
+                border-style: ridge;
+                border-width: 0.5px;
+                border-color: #1b9bff;
+            }
+            .noHover{
+                pointer-events: none;
+            }
+            .background{
+                background-image:url(resources/background.jpeg.jpeg);
+                background-size: 100%;
+            }
+            .background{
+                background-image:url(resources/background.jpeg.jpeg);
+                background-size: 100%;
+            }
+        </style>
+    </h:head>
+    <h:body styleClass="background">
+        <h:form class="container">
+            <div style="margin-left: -120px; margin-top: 8px" id="cssmenu">
+                <ul>
+                    <li class="text_size"><a href='#'><span><h:commandLink style="font-size: 18px; margin-top: -25px" action="main" value="Homepage"/></span></a></li>
+                    <li class="text_size"><a href='#'><span><h:commandLink style="margin-top: -25px" action="product" value="Product"/></span></a></li>
+                    <li class="text_size"><a href='#'><span><h:outputText value="Customer"/></span></a>
+                        <ul>
+                            <li class='has-sub text_size'><a href='#'><span><h:commandLink style="margin-top: -25px" action="customer_individual" value="Customer Individual"/></span></a></li>
+                            <li class='has-sub text_size'><a href='#'><span><h:commandLink style="margin-top: -25px" action="customer_company" value="Customer Company"/></span></a></li>
+                        </ul>
+                    </li>
+                    <li class="text_size"><a href='#'><span><h:outputText value="Sales"/></span></a>
+                        <ul>
+                            <li class='has-sub text_size'><a href='#'><span><h:commandLink style="margin-top: -25px" action="sale_list_individual" value="Sale List Individual" /></span></a></li>
+                            <li class='has-sub text_size'><a href='#'><span><h:commandLink style="margin-top: -25px" action="sale_list_company" value="Sale List Company" /></span></a></li>
+                        </ul>
+                    </li>
+                    <li class="text_size noHover"><a href='#'><span><h:outputLink style="margin-bottom: 300px; border-style: none" value=""/></span></a></li>
+                    <li class="text_size"><a href='#'><span><h:commandLink style="margin-top: -25px" action="index" value="Log Out"/></span></a></li>
+                </ul>
+
+            </div>  
+            <div class="form-group"></div>
+            <div style="margin-left: 100px; margin-top: -615px;" class="container">
+            <div class="form-group">
+                <h:commandButton styleClass="btn btn-primary" action="sale_list_individual" value="Back" />                
+            </div>
+            <h:dataTable styleClass="table table-dark table-striped" value="#{saleListIndividualController.sli_list4}" var="s">
+                <h:column>
+                    <f:facet name="header">SLI Id</f:facet>
+                        #{s.sli_id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Customer Name</f:facet>
+                        #{s.customer_name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Product Name</f:facet>
+                        #{s.product_name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Price</f:facet>
+                        #{s.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Process</f:facet>
+                        #{s.process}
+                </h:column>
+                <h:column>
+                    <h:commandButton styleClass="btn btn-danger" value="Delete" action="#{saleListIndividualController.delete(s)}"/>
+                    <h:commandButton styleClass="btn btn-success" value="Update" action="#{saleListIndividualController.send_update(s)}" />
+                </h:column>
+            </h:dataTable>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

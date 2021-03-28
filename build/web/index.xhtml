@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Sign In Template for BootsFaces</title>
+        <meta name="author" content="Riccardo Massera"></meta>
+        <style type="text/css">
+            .form-signin {
+                margin: 0 auto;
+                max-width: 330px;
+                padding: 15px;
+            }
+            .border {
+                border-radius: 25px;
+                background: silver; 
+                padding: 20px;
+                width: 700px;
+                height: 430px;
+            }
+
+        </style>
+    </h:head>
+    <h:body style="padding-top: 60px; background-image: url(resources/ballpen.jpeg); background-size: 100%">
+        <b:container style="margin-top: 40px">
+            <h:form styleClass="form-signin border" prependId="false">
+ 
+                    <h:graphicImage value="resources/Logo.png" width="370px" height="230px" 
+                                    style="margin-left: -40px"/>
+
+
+
+                    <b:inputText value="#{userListController.ul.username}" id="email" placeholder="Email address" >
+                        <f:facet name="prepend">
+                            <b:icon name="user" />
+                        </f:facet>
+                    </b:inputText>
+                    <b:inputText value="#{userListController.ul.password}" id="password" placeholder="Password" type="password">
+                        <f:facet name="prepend">
+                            <b:iconAwesome name="key" />
+                        </f:facet>
+                    </b:inputText>
+                    
+                    <b:commandButton look="primary btn-block" value="Sign In" icon="log-in" size="lg" action="#{userListController.enter()}" />
+                
+            </h:form>
+        </b:container>
+    </h:body>
+</html>
