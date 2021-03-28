@@ -8,3 +8,4 @@
 
 * We used the MVC pattern in the development process. 
 
+* We installed the glassfish web server on the local computer. 
